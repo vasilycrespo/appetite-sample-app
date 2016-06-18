@@ -1,0 +1,14 @@
+<div class="overlay" ng-class="{animate_to_top: started}">
+	<p><i class="icon ion-fork inset-text-effect"></i></p>
+	<p><span class="inset-text-effect cursive">Appetite</span></p>
+</div>
+<button class="overlay" ng-if="!startButtonHide" ng-class="{animate_hide: started}" ng-click="start()">Get started</button>
+<ion-content scroll="false">
+	<div class="box-start" ng-show="startButtonHide" ng-class="{showlogin: startButtonHide}">
+		<p class="size-20 color-white inset-white cursive"> Sign in with your email </p>
+		<input type="email" ng-model="data.email" class="start-input mt-45" placeholder="Email address">
+		<input type="password" ng-model="data.password" class="start-input" placeholder="Password">
+		<button ng-click="logIn()" class="btn-positive mt-45">Sign in</button>
+		<p class="size-14 color-white mt-20">Don't have an account? <a class="color-white" href="#register">Sign up now</a></p>
+	</div>
+</ion-content>

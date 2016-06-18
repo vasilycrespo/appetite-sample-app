@@ -1,0 +1,73 @@
+<cover ng-show="!profile"></cover>
+<menu ng-show="menuOn">
+	<div class="barg bar1" ng-class="{barslide: menuOpen, barclose: menuClose}" ng-click="menuAction('start')">
+		<p><i class="icon ion-home"></i><span class="size-27 cursive"> Start</span></p>
+	</div>
+	<div class="barg bar2" ng-class="{barslide: menuOpen, barclose: menuClose}" ng-click="menuAction('account')">
+		<p><i class="icon ion-person"></i><span class="size-27 cursive"> Account</span></p>
+	</div>
+	<div class="barg bar3" ng-class="{barslide: menuOpen, barclose: menuClose}" ng-click="menuAction('shopping')">
+		<p><i class="icon ion-bag"></i><span class="size-27 cursive"> Shopping</span></p>
+	</div>
+	<div class="barg bar4" ng-class="{barslide: menuOpen, barclose: menuClose}" ng-click="menuAction('logout')">
+		<p><i class="icon ion-android-exit"></i><span class="size-27 cursive"> Logout</span></p>
+	</div>
+</menu>
+<div class="bar bar-header">
+  <button ng-click="switchMenu()" class="button button-icon icon ion-navicon color-white"></button>
+  <div class="h1 title color-white">
+  	<p class="mt--3"><i class="icon ion-fork size-27"></i></p>
+  	<p class="mt--5 size-11">Appetite</p>
+  </div>
+</div>
+<ion-content scroll="true" class="white has-header" on-scroll="showCredits()">
+	<div class="list">
+		<div class="list card full-card no-top">
+		  <div class="item item-avatar">
+		    <img src="img/no-image.jpg">
+		    <h2 class="color-strong">{{profile.full_name}}</h2>
+		    <p class="color-soft">
+			    <span>1 </span><i class="icon ion-fork size-20 mr-20"></i>
+			    <span>4 </span><i class="icon ion-email-unread size-20 mr-20"></i>
+				<span>12 </span><i class="icon ion-android-notifications size-20 mr-20"></i>
+				<span>2 </span><i class="icon ion-pin size-20 mr-20"></i>
+		    </p>
+		  </div>
+		</div>
+
+		<div class="list card full-card" ng-repeat="card in cards">
+		  <div class="item item-avatar">
+		    <img src="{{card.title_image}}">
+		    <h2 class="color-strong">{{card.title}}</h2>
+		    <p class="color-soft"><i ng-show="card.icon" class="icon {{card.icon}}"></i> {{card.subtitle}}</p>
+		  </div>
+		  <div class="item item-body" ng-show="card.body">
+		    <img ng-show="card.body_image" class="full-image" src="{{card.body_image}}">
+		    <p>{{card.body}}</p>
+		    <p>
+		      <a href="#" class="subdued color-soft">{{card.footer}}</a>
+		    </p>
+		  </div>
+		</div>
+
+	</div>
+	<div class="footer-text">
+		<p class="color-slim">About | Langauge | Terms</p>
+		<p class="color-slim">Appetite Ⓡ 2016, a sample App by Vasily Crespo.</p>
+	</div>
+</ion-content>
+
+<div class="step2 credits" ng-class="{showgauge: showGauge}">
+	<div class="gauge">
+	  <div class="back"><div class="fill"></div></div>
+	</div>
+	<div class="circle-gauge">
+	  <div class="back">
+	    <p>
+	      <span class="size-16 color-white inset-white">1</span>
+	      <i class="icon ion-fork size-27 color-white inset-white"></i>
+	    </p>
+	    
+	  </div>
+	</div>
+</div>

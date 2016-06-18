@@ -1,0 +1,7 @@
+{
+  "name": "appetite-sample-app",
+  "app_id": "",
+  "gulpStartupTasks": [
+	"default"
+  ]
+}

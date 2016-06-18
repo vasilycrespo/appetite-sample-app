@@ -1,0 +1,55 @@
+<div class="bar bar-header">
+  <div class="h1 title color-white">
+  	<p class="mt--3"><i class="icon ion-fork size-27"></i></p>
+  	<p class="mt--5 size-11">Appetite</p>
+  </div>
+</div>
+<ion-content scroll="true" class="has-header">
+	<div class="box-center">
+    <div ng-show="step === 1" class="animated" ng-class="{'hide1': transtion === 1}">
+       <p class="size-20 center mt-20 color-white inset-white cursive">Fell like earning some credits? </p>
+       <p class="size-14 color-white mt-20 fancy-p">Answer a few question, this will help me know better your food tastes. It's simple, just swipe the cards to the right to say Yummy!, or left to say Eww!</p>
+       <div class="full-image-container">
+          <img class="full-image" src="img/chef.svg">
+       </div>
+       <div class="button-circle pos_go" ng-click="toStep(2)">Go!</div>
+     </div>
+    <div ng-show="step === 2" class="step2" ng-class="{'show2': transtion === 2}">
+      <td-cards>
+      <p ng-hide="congrats" class="size-20 center mt-20 color-white inset-white cursive">What do you prefer?</p>
+      <p ng-show="congrats" class="size-20 center mt-20 color-white inset-white cursive">Congratulations!</p>
+      <p ng-show="congrats" class="size-14 color-white mt-20 fancy-p">
+        <span ng-show="sushi">So, you like sushi after all, good to know!</span>
+        <span ng-hide="sushi">So, you don't like sushie uh?, good to know!</span><br>
+        <span>Btw, you have earned your first Food Credit!. Collect as many as you can to eat your favorite foodie for free. See you later!</span>
+      </p>
+
+        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index, card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+          <div class="image" style="background-image: url('{{card.image}}')">
+            <div class="no-text">Eww!</div>
+ 			      <div class="text-content"><p class="size-20 color-strong">{{card.text}}</p></div>
+            <div class="yes-text">Yummy!</div>
+          </div>
+        </td-card>
+      </td-cards>
+       <div class="full-image-container static" ng-show="congrats">
+          <img class="full-image" src="img/chef.svg">
+       </div>
+        <div ng-show="congrats" class="button-circle pos_go" ng-click="go('home')">Sure!</div>
+    </div>
+	</div>
+  <div ng-show="step === 2" class="ng-hide step2 credits" ng-class="{'show2': transtion === 2, 'congrats': congrats}">
+    <div class="gauge">
+      <div class="back"><div class="fill" ng-style="{width: credits*100 +'%' }"></div></div>
+    </div>
+    <div class="circle-gauge">
+      <div class="back">
+        <p>
+          <span class="size-16 color-white inset-white">{{credits | currency : '' : 1}}</span>
+          <i class="icon ion-fork size-27 color-white inset-white"></i>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+</ion-content>
