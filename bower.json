@@ -6,6 +6,7 @@
   },
   "resolutions": {
     "angular": "1.5.3",
+    "ng-lodash": "~0.3.0"
   },
   "dependencies": {
     "ng-lodash": "^0.5.0"
