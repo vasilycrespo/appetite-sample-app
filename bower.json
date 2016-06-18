@@ -9,6 +9,7 @@
     "ng-lodash": "~0.3.0"
   },
   "dependencies": {
-    "ng-lodash": "^0.5.0"
+    "ng-lodash": "^0.5.0",
+    "ionic-ion-tinder-cards": "ionic-contrib-tinder-cards#*"
   }
 }
